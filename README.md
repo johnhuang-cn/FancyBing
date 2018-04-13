@@ -3,7 +3,7 @@
 ![license GPL](https://img.shields.io/badge/license-GPL-blue.svg)
 ![language java](https://img.shields.io/badge/language-java-brightgreen.svg)
 
-[中文版Readme](readme-zh.md)
+[中文版Readme](README-zh.md)
 
 # FancyBing
 A Go program implemented by pure JAVA with Deeplearning4j. The network architecture base on "[Mastering the Game of Go without Human Knowledge](https://deepmind.com/documents/119/agz_unformatted_nature.pdf)", but smaller netowrk, fewer features and without self playing. The network is trained with 1500,000 human games. Then also mixed 300,000 newest leelazero self play games.
