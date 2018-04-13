@@ -58,6 +58,15 @@ The generator would random pick moves from the sgfs and generate feature files n
 
 Please use the all() function to generate normal training data. The open(), mid(), end() functions are used to generate data for opening, mid, end game.
 
+Unlike AlphaGo Zero's 18 features, Fancybing uses 10 features only:
+1) Black Stones
+2) White Stones
+3) Empty Points
+4-7) 1, 2, 3, >3 liberties
+8) Ko
+9) last 8 history moves
+10) next move color
+
 ## Training
 See [ResNetwork.java](/fancybing-policynet/src/main/java/net/xdevelop/go/policynet/PolicyNetService.java)
 
