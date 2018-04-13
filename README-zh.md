@@ -1,4 +1,4 @@
-[![release 1.0.0](https://img.shields.io/badge/release-1.0.0-blue.svg)](https://github.com/johnhuang-cn/FancyBing)
+[![release 1.0.0](https://img.shields.io/badge/release-1.0.0-blue.svg)](https://github.com/johnhuang-cn/FancyBing/releases)
 [![Framework Deeplearning4j](https://img.shields.io/badge/framework-DeepLearning4j-brightgreen.svg)](https://deeplearning4j.org/)
 ![license GPL](https://img.shields.io/badge/license-GPL-blue.svg)
 ![language java](https://img.shields.io/badge/language-java-brightgreen.svg)
@@ -22,6 +22,13 @@ FancyBing要比LeelaZero新版弱一档次，差不多相当于Zen 9d的水平�
 
 为了更快的让网络掌握征子，FancyBing在训练末期人为增加了征子样本的比例。首先是从LeelaZero的最新300多万对局中抽取了50万的连续打吃5次以上的局面(虽然不准确但简便的判断征子局面的方法)，然后以大约1-2%比例混合在正常训练数据中进行针对性训练。
 经过大约2万steps(batch:128)的训练，网络的征子水平得到大幅提高。大部分征子问题，都可以在5000-20000次playout后识别出来。
+
+下面是一个来自顶级AI BensonDrr的实战对局，本森狗狗在野狐上几乎战无不胜，鲜有失手，但也栽在了这个征子陷阱上。这说明征子对AI来说确实是一个难题。那经过上面特殊训练的FancyBing在这里表现如何呢？下面是测试结果：
+1) 当黑棋75手打吃的时候，FancyBing下白棋的话，它也会76位逃出，这不算问题，因为这时征子是有利的。
+2) 黑棋的77手是一个很巧妙的引征手段，不细算的话，对像我这样的业余爱好者来说，一不小心也就78手打吃了。这个局面FancyBing来下的话，它的第一感也是78手，但很快它会发现这是个陷阱，并最终会选择下在E7吃住下面的黑棋
+3) 即使白棋78手中计打吃了，黑79手开征的时候，FancyBing不会80手继续外逃，它会选择在E2吃掉黑一子避免扩大损失。
+
+![ladder issue test](docs/images/laddertest.png)
 
 ## 提高打劫能力
 方法同上，不同的是打劫的moves是从高段对局中抽取的.

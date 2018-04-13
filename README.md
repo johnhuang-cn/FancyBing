@@ -1,7 +1,9 @@
-[![release 1.0.0](https://img.shields.io/badge/release-1.0.0-blue.svg)](https://github.com/johnhuang-cn/FancyBing)
+[![release 1.0.0](https://img.shields.io/badge/release-1.0.0-blue.svg)](https://github.com/johnhuang-cn/FancyBing/releases)
 [![Framework Deeplearning4j](https://img.shields.io/badge/framework-DeepLearning4j-brightgreen.svg)](https://deeplearning4j.org/)
 ![license GPL](https://img.shields.io/badge/license-GPL-blue.svg)
 ![language java](https://img.shields.io/badge/language-java-brightgreen.svg)
+
+[中文版Readme](README-zh.md)
 
 # FancyBing
 A Go program implemented by pure JAVA with Deeplearning4j. The network architecture base on "[Mastering the Game of Go without Human Knowledge](https://deepmind.com/documents/119/agz_unformatted_nature.pdf)", but smaller netowrk, fewer features and without self playing. The network is trained with 1500,000 human games. Then also mixed 300,000 newest leelazero self play games.
@@ -15,7 +17,14 @@ Tencent Fox 9d (18cores + 1 GTX1080, 15s), about half lost games are vs other AI
 ## Improve the ladder reading ability by oversampling
 Why most Go bots can't read ladder correctly is because there are few ladder failed samples in normal games. In high dan level games, player would avoid failure ladder in advance. So if the policynetwork is trained with human games, the network can't learn ladder well. Trained with self play games it would be better, but still need long time evolution.
 
-I extract 500,000 continue atari moves (most of them are ladder related) from leela zero selfplay games, mixed them into normal train data which percentage is about 1-2%, after about 200,00 steps (batch: 128) extra training, the ladder reading improve obviously, it can solve most ladder problem after 5,000-20,000 playouts.
+I extract 500,000 continue atari moves (most of them are ladder related) from leela zero selfplay games, mixed them into normal train data, the ladder move percentage is about 1-2%. After about 200,00 steps (batch: 128) extra training, the ladder reading improve obviously, it can solve most ladder problem after 5,000-20,000 playouts.
+
+The following is one lost game of top AI BensonDarr, ladder is a difficult problem of AI, so even such top AI would fall into ladder trap. After above training, Fancybing can solve this ladder issue within few seconds. The following is the test results:
+1) When black play move 75, FancyBing would play move 76 to escape the ladder, it is correct, because it is a success escape. 
+2) When black play move 77 which is a ingenious ladder block move, the move 78 is also the first sense of FancyBing, but FancyBing would discover the trap within few seconds and play E7 instead of move 78.
+3) Even if white already play 78 and black atari at move 79, FancyBing would avoid the escaping, and play E2 instead the fail escaping move 80.
+
+![ladder issue test](docs/images/laddertest.png)
 
 ## Improve the ko ability by oversampling
 The method is same as above, but the ko moves are extracted from high level games.
