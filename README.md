@@ -62,7 +62,10 @@ Unlike AlphaGo Zero's 18 features, Fancybing uses 10 features only:
 1) Black Stones
 2) White Stones
 3) Empty Points
-4-7) 1, 2, 3, >3 liberties
+4) 1 liberties stone group
+5) 2 liberties stone group
+6) 3 liberties stone group
+7) &gt;3 liberties stone group
 8) Ko
 9) last 8 history moves
 10) next move color
