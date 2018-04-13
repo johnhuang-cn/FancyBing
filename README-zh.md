@@ -1,4 +1,4 @@
-[![release 1.0.0](https://img.shields.io/badge/release-1.0.0-blue.svg)](https://github.com/johnhuang-cn/FancyBing)
+[![release 1.0.0](https://img.shields.io/badge/release-1.0.0-blue.svg)](https://github.com/johnhuang-cn/FancyBing/releases)
 [![Framework Deeplearning4j](https://img.shields.io/badge/framework-DeepLearning4j-brightgreen.svg)](https://deeplearning4j.org/)
 ![license GPL](https://img.shields.io/badge/license-GPL-blue.svg)
 ![language java](https://img.shields.io/badge/language-java-brightgreen.svg)
