@@ -43,22 +43,25 @@ So, I didn't simply the requirements and usages steps here. But I think such are
 * Download package and extract it
 * Run startPolicyNetService.bat
 * Run startFancybingService.bat
-* Attach FancyBing player to GoGui
-Open GoGUI > Program > New Program
-Command: java -jar fancybing-gtp-1.0.jar
-Working Directory: the path of Fancybing
- 
+* Attach FancyBing player to GoGui, open GoGUI > Program > New Program<br/>Command: java -jar fancybing-gtp-1.0.jar<br/>Working Directory: the path of Fancybing<br/>
 ![Attach to GoGUI](/docs/images/attach_to_gogui.png)
 
 # Training
 ## Download SGFs
 [Computer go database](https://github.com/yenw/computer-go-dataset)
+Please transfer other format into sepearte SGF files.
 
 ## Generate the training data
 See [FeatureGenerator.java](/fancybing-train/src/main/java/net/xdevelop/go/preprocess/FeatureGenerator.java)
 
+The generator would random pick moves from the sgfs and generate feature files named 0.txt, 1.txt, 2.txt... each contains 51200 records.
+
+Please use the all() function to generate normal training data. The open(), mid(), end() functions are used to generate data for opening, mid, end game.
+
 ## Training
 See [ResNetwork.java](/fancybing-policynet/src/main/java/net/xdevelop/go/policynet/PolicyNetService.java)
+
+The early stop implementation is not good enough in DL4j 0.9.1, so I train the model by sepearate data file, so that you can stop the training at any time, and adjust the learing rate then continue the training by manual increase the start file index.
 
 # License
 The code is released under the GPLv3 or later, any commercial usage please contact me (john.h.cn@gmail.com).
