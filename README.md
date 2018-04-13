@@ -1,13 +1,15 @@
 [![release 1.0.0](https://img.shields.io/badge/release-1.0.0-blue.svg)](https://github.com/johnhuang-cn/FancyBing)
 [![Framework Deeplearning4j](https://img.shields.io/badge/framework-DeepLearning4j-brightgreen.svg)](https://deeplearning4j.org/)
-![license GPL](https://img.shields.io/aur/license/yaourt.svg)
+![license GPL](https://img.shields.io/badge/license-GPL-blue.svg)
 ![language java](https://img.shields.io/badge/language-java-brightgreen.svg)
 
 # FancyBing
 A Go program implemented by pure JAVA with Deeplearning4j. The network architecture base on "[Mastering the Game of Go without Human Knowledge](https://deepmind.com/documents/119/agz_unformatted_nature.pdf)", but smaller netowrk, fewer features and without self playing. The network is trained with 1500,000 human games. Then also mixed 300,000 newest leelazero self play games.
 
 # Performance
-Tencent Fox 9d (18cores + 1 GTX1080, 15s), about half lost games are vs other AIs or because of misclick. It still not enough strong than Leela Zero, but can compete with zen 9d.
+Tencent Fox 9d (18cores + 1 GTX1080, 15s), about half lost games are vs other AIs or because of misclick. It still not enough strong than Leela Zero, can compete with zen 9d, but less stable.
+
+![FancyBing Fox 9d](docs/images/fancybing.png)
 
 # What Improvements I did
 ## Improve the ladder reading ability by oversampling
@@ -44,7 +46,8 @@ So, I didn't simply the requirements and usages steps here. But I think such are
 * Attach FancyBing player to GoGui
 Open GoGUI > Program > New Program
 Command: java -jar fancybing-gtp-1.0.jar
-Working Directory: the path of Fancybing 
+Working Directory: the path of Fancybing
+ 
 ![Attach to GoGUI](/docs/images/attach_to_gogui.png)
 
 # Training
@@ -52,10 +55,10 @@ Working Directory: the path of Fancybing
 [Computer go database](https://github.com/yenw/computer-go-dataset)
 
 ## Generate the training data
-See FeatureGenerator.java
+See [FeatureGenerator.java](/fancybing-train/src/main/java/net/xdevelop/go/preprocess/FeatureGenerator.java)
 
 ## Training
-See ResNetwork.java
+See [ResNetwork.java](/fancybing-policynet/src/main/java/net/xdevelop/go/policynet/PolicyNetService.java)
 
 # License
 The code is released under the GPLv3 or later, any commercial usage please contact me (john.h.cn@gmail.com).
