@@ -17,7 +17,7 @@ Tencent Fox 9d (18cores + 1 GTX1080, 15s), about half lost games are vs other AI
 ## Improve the ladder reading ability by oversampling
 Why most Go bots can't read ladder correctly is because there are few ladder failed samples in normal games. In high dan level games, player would avoid failure ladder in advance. So if the policynetwork is trained with human games, the network can't learn ladder well. Trained with self play games it would be better, but still need long time evolution.
 
-I extract 500,000 continue atari moves (most of them are ladder related) from leela zero selfplay games, mixed them into normal train data which percentage is about 1-2%, after about 200,00 steps (batch: 128) extra training, the ladder reading improve obviously, it can solve most ladder problem after 5,000-20,000 playouts.
+I extract 500,000 continue atari moves (most of them are ladder related) from leela zero selfplay games, mixed them into normal train data, the ladder move percentage is about 1-2%. After about 200,00 steps (batch: 128) extra training, the ladder reading improve obviously, it can solve most ladder problem after 5,000-20,000 playouts.
 
 The following is one lost game of top AI BensonDarr, ladder is a difficult problem of AI, so even such top AI would fall into ladder trap. After above training, Fancybing can solve this ladder issue within few seconds. The following is the test results:
 1) When black play move 75, FancyBing would play move 76 to escape the ladder, it is correct, because it is a success escape. 
