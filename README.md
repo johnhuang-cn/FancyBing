@@ -21,7 +21,7 @@ I extract 500,000 continue atari moves (most of them are ladder related) from le
 
 The following is one lost game of top AI BensonDarr, ladder is a difficult problem of AI, so even such top AI would fall into ladder trap. After above training, Fancybing can solve this ladder issue within few seconds. The following is the test results:
 1) When black play move 75, FancyBing would play move 76 to escape the ladder, it is correct, because it is a success escape. 
-2) When black play move 77, it is a ingenious ladder block move, but FancyBing would discover it within 10s and play E7 instead move 78.
+2) When black play move 77 which is a ingenious ladder block move, the move 78 is also the first sense of FancyBing, but FancyBing would discover the trap within few seconds and play E7 instead of move 78.
 3) Even if white already play 78 and black atari at move 79, FancyBing would avoid the escaping, and play E2 instead the fail escaping move 80.
 
 ![ladder issue test](docs/images/laddertest.png)
